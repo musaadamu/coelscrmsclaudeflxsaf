@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -40,4 +41,6 @@ StudentFeeSchema.pre('save', function(next) {
   next();
 });
 
+StudentFeeSchema.plugin(auditPlugin);
 module.exports = mongoose.model('StudentFee', StudentFeeSchema);
+

@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -12,4 +13,6 @@ const AdmissionCycleSchema = new Schema({
   deletedAt: { type: Date, default: null }
 }, { timestamps: true });
 
+AdmissionCycleSchema.plugin(auditPlugin);
 module.exports = mongoose.model('AdmissionCycle', AdmissionCycleSchema);
+

@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -28,4 +29,6 @@ HostelRoomSchema.virtual('pricePerSessionNaira').get(function() {
   this.pricePerSessionKobo = Math.round(value * 100);
 });
 
+HostelRoomSchema.plugin(auditPlugin);
 module.exports = mongoose.model('HostelRoom', HostelRoomSchema);
+

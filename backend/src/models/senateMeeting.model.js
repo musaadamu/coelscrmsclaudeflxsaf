@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -19,4 +20,6 @@ const SenateMeetingSchema = new Schema({
   deletedAt: { type: Date, default: null }
 }, { timestamps: true });
 
+SenateMeetingSchema.plugin(auditPlugin);
 module.exports = mongoose.model('SenateMeeting', SenateMeetingSchema);
+

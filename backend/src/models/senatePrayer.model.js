@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -30,4 +31,6 @@ const SenatePrayerSchema = new Schema({
 // Indexing
 SenatePrayerSchema.index({ meeting: 1, status: 1 });
 
+SenatePrayerSchema.plugin(auditPlugin);
 module.exports = mongoose.model('SenatePrayer', SenatePrayerSchema);
+

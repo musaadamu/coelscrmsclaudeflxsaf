@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -21,4 +22,6 @@ const HostelAllocationSchema = new Schema({
 // Index to prevent double allocation for the same student in the same session
 HostelAllocationSchema.index({ student: 1, session: 1 }, { unique: true });
 
+HostelAllocationSchema.plugin(auditPlugin);
 module.exports = mongoose.model('HostelAllocation', HostelAllocationSchema);
+

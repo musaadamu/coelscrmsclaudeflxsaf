@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -23,4 +24,6 @@ FeeStructureSchema.virtual('amountNaira').get(function() {
   this.amountKobo = Math.round(value * 100);
 });
 
+FeeStructureSchema.plugin(auditPlugin);
 module.exports = mongoose.model('FeeStructure', FeeStructureSchema);
+

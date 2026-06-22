@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
@@ -43,4 +44,6 @@ UserSchema.pre('save', async function(next) {
   }
 });
 
+UserSchema.plugin(auditPlugin);
 module.exports = mongoose.model('User', UserSchema);
+

@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -33,4 +34,6 @@ SemesterSchema.pre('save', async function(next) {
   }
 });
 
+SemesterSchema.plugin(auditPlugin);
 module.exports = mongoose.model('Semester', SemesterSchema);
+

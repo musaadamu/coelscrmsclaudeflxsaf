@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -10,4 +11,6 @@ const DepartmentSchema = new Schema({
   deletedAt: { type: Date, default: null }
 }, { timestamps: true });
 
+DepartmentSchema.plugin(auditPlugin);
 module.exports = mongoose.model('Department', DepartmentSchema);
+

@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -13,4 +14,6 @@ const CourseOfferingSchema = new Schema({
 // Compound unique index for course per semester
 CourseOfferingSchema.index({ course: 1, semester: 1 }, { unique: true });
 
+CourseOfferingSchema.plugin(auditPlugin);
 module.exports = mongoose.model('CourseOffering', CourseOfferingSchema);
+

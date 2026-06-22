@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -14,4 +15,6 @@ const HostelSchema = new Schema({
   deletedAt: { type: Date, default: null }
 }, { timestamps: true });
 
+HostelSchema.plugin(auditPlugin);
 module.exports = mongoose.model('Hostel', HostelSchema);
+

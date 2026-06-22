@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -23,4 +24,6 @@ ReportSnapshotSchema.index({ reportType: 1, session: 1 });
 // TTL index on expiresAt (expires immediately when expiresAt is reached)
 ReportSnapshotSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
+ReportSnapshotSchema.plugin(auditPlugin);
 module.exports = mongoose.model('ReportSnapshot', ReportSnapshotSchema);
+

@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -27,4 +28,6 @@ AcademicSessionSchema.pre('save', async function(next) {
   }
 });
 
+AcademicSessionSchema.plugin(auditPlugin);
 module.exports = mongoose.model('AcademicSession', AcademicSessionSchema);
+

@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -26,4 +27,6 @@ const NotificationLogSchema = new Schema({
 // TTL index on createdAt: expire after 90 days (7,776,000 seconds)
 NotificationLogSchema.index({ createdAt: 1 }, { expireAfterSeconds: 7776000 });
 
+NotificationLogSchema.plugin(auditPlugin);
 module.exports = mongoose.model('NotificationLog', NotificationLogSchema);
+

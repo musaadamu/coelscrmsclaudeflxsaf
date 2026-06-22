@@ -44,9 +44,8 @@ export async function authenticate(req: Request, res: Response, next: NextFuncti
     req.user = { id: decoded.id, roles: user.roles || [], permissions: user.permissions || [], email: (user as any).email }
 
     // set async context for audit logging
-    asyncContext.run({ userId: decoded.id, ip: req.ip, userAgent: req.headers['user-agent'] as string }, () => {})
+    asyncContext.run({ userId: decoded.id, ip: req.ip, userAgent: req.headers['user-agent'] as string }, next)
 
-    next()
   } catch (error) {
     logger.error('Authentication failed:', error)
     const response: ApiResponse = {

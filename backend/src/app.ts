@@ -12,6 +12,7 @@ import paymentRoutes from './routes/payment.routes'
 import admissionRoutes from './routes/admission.routes'
 import modulesRoutes from './routes/modules.routes'
 import extendedRoutes from './routes/extended.routes'
+import adminRoutes from './routes/admin.routes'
 import { errorHandler } from './middleware/errorHandler'
 import { requestLogger } from './middleware/requestLogger'
 import { mongoSanitize, sanitizeInputs, applySecurity, rateLimit } from './middleware/security'
@@ -88,6 +89,7 @@ app.use('/api/results', resultRoutes)
 app.use('/api/payments', paymentRoutes)
 app.use('/api', modulesRoutes)
 app.use('/api', extendedRoutes)
+app.use('/api/admin', adminRoutes)
 
 // 404 handler
 app.use((req: Request, res: Response) => {

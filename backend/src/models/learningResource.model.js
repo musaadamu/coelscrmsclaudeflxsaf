@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -21,4 +22,6 @@ const LearningResourceSchema = new Schema({
 // Compound index for resource sorting
 LearningResourceSchema.index({ module: 1, orderIndex: 1 });
 
+LearningResourceSchema.plugin(auditPlugin);
 module.exports = mongoose.model('LearningResource', LearningResourceSchema);
+

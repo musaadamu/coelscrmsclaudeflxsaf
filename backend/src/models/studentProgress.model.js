@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -14,4 +15,6 @@ const StudentProgressSchema = new Schema({
 // Ensure unique record per student per learning resource
 StudentProgressSchema.index({ student: 1, resource: 1 }, { unique: true });
 
+StudentProgressSchema.plugin(auditPlugin);
 module.exports = mongoose.model('StudentProgress', StudentProgressSchema);
+

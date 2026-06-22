@@ -1,34 +1,9 @@
 import { Router } from 'express';
-import { studentController } from '../controllers/student.controller';
 import { enrolmentController, resultController, paymentController } from '../controllers/core.controller';
 import { authenticate, authorize } from '../middleware';
+import { isOwner } from '../middleware/isOwner';
 
 const router = Router();
-
-// Students CRUD
-router.post('/', authenticate, authorize('registrar', 'super_admin'), (req, res, next) => {
-  studentController.createStudent(req, res, next);
-});
-
-router.get('/', authenticate, (req, res, next) => {
-  studentController.listStudents(req, res, next);
-});
-
-router.get('/:id', authenticate, (req, res, next) => {
-  studentController.getStudent(req, res, next);
-});
-
-router.patch('/:id', authenticate, (req, res, next) => {
-  studentController.updateStudent(req, res, next);
-});
-
-router.delete('/:id', authenticate, authorize('registrar', 'super_admin'), (req, res, next) => {
-  studentController.deleteStudent(req, res, next);
-});
-
-router.post('/import', authenticate, authorize('registrar', 'super_admin'), (req, res, next) => {
-  studentController.importCSV(req, res, next);
-});
 
 // Course Enrolments
 router.post('/enrolments', authenticate, authorize('student'), (req, res, next) => {
@@ -48,7 +23,7 @@ router.post('/results/bulk', authenticate, authorize('lecturer', 'hod', 'registr
   resultController.bulkUpload(req, res, next);
 });
 
-router.get('/results/:studentId', authenticate, (req, res, next) => {
+router.get('/results/:studentId', authenticate, authorize('student', 'lecturer', 'hod', 'registrar', 'super_admin'), isOwner(req => req.params.studentId), (req, res, next) => {
   resultController.getStudentResults(req, res, next);
 });
 
@@ -60,7 +35,7 @@ router.post('/results/publish', authenticate, authorize('registrar', 'super_admi
   resultController.publishResults(req, res, next);
 });
 
-router.get('/cgpa/:studentId', authenticate, (req, res, next) => {
+router.get('/cgpa/:studentId', authenticate, authorize('student', 'registrar', 'super_admin'), isOwner(req => req.params.studentId), (req, res, next) => {
   resultController.getStudentCGPA(req, res, next);
 });
 

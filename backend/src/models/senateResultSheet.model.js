@@ -1,3 +1,4 @@
+const auditPlugin = require('../utils/auditPlugin');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -20,4 +21,6 @@ const SenateResultSheetSchema = new Schema({
 // Compound unique index on meeting and programme
 SenateResultSheetSchema.index({ meeting: 1, programme: 1 }, { unique: true });
 
+SenateResultSheetSchema.plugin(auditPlugin);
 module.exports = mongoose.model('SenateResultSheet', SenateResultSheetSchema);
+
