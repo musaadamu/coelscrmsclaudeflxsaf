@@ -30,6 +30,10 @@ logs/
 # Environment variables
 .env
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+.env.example
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 .env.example
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f

@@ -27,9 +27,12 @@ const ResultSchema = new Schema({
 
 // Compound indexes
 <<<<<<< HEAD
+<<<<<<< HEAD
 ResultSchema.index({ student: 1, semester: 1 });
 
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 
 // Auditing
 try {
@@ -38,6 +41,9 @@ try {
 } catch (e) {}
 
 module.exports = mongoose.model('Result', ResultSchema)
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 // Pre-save hook: grade calculation
 ResultSchema.pre('save', function(next) {

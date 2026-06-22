@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -48,7 +52,13 @@ UserSchema.pre('save', async function(next) {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('User', UserSchema);
+=======
+UserSchema.plugin(auditPlugin);
+module.exports = mongoose.model('User', UserSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 UserSchema.plugin(auditPlugin);
 module.exports = mongoose.model('User', UserSchema);

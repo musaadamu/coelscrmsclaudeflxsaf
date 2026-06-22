@@ -27,12 +27,18 @@ ScratchCardSchema.virtual('denominationNaira').get(function() {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 // Auditing
 try {
   const auditPlugin = require('../utils/auditPlugin')
   ScratchCardSchema.plugin(auditPlugin)
 } catch (e) {}
 
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 module.exports = mongoose.model('ScratchCard', ScratchCardSchema);

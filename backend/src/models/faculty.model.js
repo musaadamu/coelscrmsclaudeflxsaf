@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -13,7 +17,13 @@ const FacultySchema = new Schema({
 }, { timestamps: true });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('Faculty', FacultySchema);
+=======
+FacultySchema.plugin(auditPlugin);
+module.exports = mongoose.model('Faculty', FacultySchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 FacultySchema.plugin(auditPlugin);
 module.exports = mongoose.model('Faculty', FacultySchema);

@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -33,7 +37,13 @@ HostelRoomSchema.virtual('pricePerSessionNaira').get(function() {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('HostelRoom', HostelRoomSchema);
+=======
+HostelRoomSchema.plugin(auditPlugin);
+module.exports = mongoose.model('HostelRoom', HostelRoomSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 HostelRoomSchema.plugin(auditPlugin);
 module.exports = mongoose.model('HostelRoom', HostelRoomSchema);

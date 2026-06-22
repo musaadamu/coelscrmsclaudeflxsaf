@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -23,7 +27,13 @@ const StaffLeaveRequestSchema = new Schema({
 }, { timestamps: true });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('StaffLeaveRequest', StaffLeaveRequestSchema);
+=======
+StaffLeaveRequestSchema.plugin(auditPlugin);
+module.exports = mongoose.model('StaffLeaveRequest', StaffLeaveRequestSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 StaffLeaveRequestSchema.plugin(auditPlugin);
 module.exports = mongoose.model('StaffLeaveRequest', StaffLeaveRequestSchema);

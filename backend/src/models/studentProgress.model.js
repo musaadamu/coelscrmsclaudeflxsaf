@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -19,7 +23,13 @@ const StudentProgressSchema = new Schema({
 StudentProgressSchema.index({ student: 1, resource: 1 }, { unique: true });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('StudentProgress', StudentProgressSchema);
+=======
+StudentProgressSchema.plugin(auditPlugin);
+module.exports = mongoose.model('StudentProgress', StudentProgressSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 StudentProgressSchema.plugin(auditPlugin);
 module.exports = mongoose.model('StudentProgress', StudentProgressSchema);

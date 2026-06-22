@@ -43,7 +43,10 @@ const StudentSchema = new Schema({
 StudentSchema.index({ programme: 1, currentLevel: 1 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 // Auditing plugin
 try {
   const auditPlugin = require('../utils/auditPlugin')
@@ -52,5 +55,8 @@ try {
   // ignore if plugin not available in test env
 }
 
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 module.exports = mongoose.model('Student', StudentSchema);

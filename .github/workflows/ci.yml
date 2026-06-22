@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 name: CI
+=======
+name: CI/CD Pipeline
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 name: CI/CD Pipeline
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -12,6 +16,7 @@ on:
 
 jobs:
 <<<<<<< HEAD
+<<<<<<< HEAD
   backend:
     name: Backend — Lint, Type-check, Test
     runs-on: ubuntu-latest
@@ -19,6 +24,8 @@ jobs:
       run:
         working-directory: backend
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
   shared:
     name: Shared — Build & Type-check
     runs-on: ubuntu-latest
@@ -70,6 +77,9 @@ jobs:
           --health-retries 5
         ports:
           - 6379:6379
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
     steps:
       - uses: actions/checkout@v4
@@ -92,7 +102,11 @@ jobs:
 
       - name: Run tests with coverage
 <<<<<<< HEAD
+<<<<<<< HEAD
         run: npm run test -- --coverage --coverageThreshold='{"global":{"lines":80}}'
+=======
+        run: npm run test -- --coverage
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
         run: npm run test -- --coverage
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -102,6 +116,7 @@ jobs:
           MONGODB_DB_NAME: coels_crms_test
           REDIS_HOST: localhost
           REDIS_PORT: 6379
+<<<<<<< HEAD
 <<<<<<< HEAD
           JWT_SECRET: test_jwt_secret_at_least_64_characters_long_for_ci_pipeline_security
           JWT_REFRESH_SECRET: test_refresh_secret_at_least_64_characters_long_for_ci_pipeline_ok
@@ -119,6 +134,8 @@ jobs:
         ports:
           - 6379:6379
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
           JWT_SECRET: test_jwt_secret_at_least_64_characters_long_for_ci_pipeline_security_ok
           JWT_REFRESH_SECRET: test_refresh_secret_at_least_64_characters_long_for_ci_pipeline_ok
 
@@ -127,12 +144,19 @@ jobs:
 
       - name: Build Docker image (backend)
         run: docker build -f Dockerfile -t coels-crms-backend:${{ github.sha }} .
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 
   frontend:
     name: Frontend — Lint, Type-check, Build
     runs-on: ubuntu-latest
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    needs: shared
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
     needs: shared
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -163,8 +187,11 @@ jobs:
 
       - name: Build Docker image (frontend)
 <<<<<<< HEAD
+<<<<<<< HEAD
         run: docker build -t coels-crms-frontend:ci .
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
         run: docker build -f Dockerfile -t coels-crms-frontend:${{ github.sha }} .
 
   deploy:
@@ -177,4 +204,7 @@ jobs:
 
       - name: Deploy notification
         run: echo "Deployment to production would happen here"
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f

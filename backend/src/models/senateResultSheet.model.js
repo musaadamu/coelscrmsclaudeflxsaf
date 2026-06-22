@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -25,7 +29,13 @@ const SenateResultSheetSchema = new Schema({
 SenateResultSheetSchema.index({ meeting: 1, programme: 1 }, { unique: true });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('SenateResultSheet', SenateResultSheetSchema);
+=======
+SenateResultSheetSchema.plugin(auditPlugin);
+module.exports = mongoose.model('SenateResultSheet', SenateResultSheetSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 SenateResultSheetSchema.plugin(auditPlugin);
 module.exports = mongoose.model('SenateResultSheet', SenateResultSheetSchema);

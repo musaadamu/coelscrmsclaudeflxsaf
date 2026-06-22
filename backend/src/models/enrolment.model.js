@@ -16,8 +16,11 @@ const EnrolmentSchema = new Schema({
 
 // Compound index to prevent duplicate enrollments
 <<<<<<< HEAD
+<<<<<<< HEAD
 EnrolmentSchema.index({ student: 1, courseOffering: 1 }, { unique: true });
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
   EnrolmentSchema.index({ student: 1, courseOffering: 1 }, { unique: true });
 
   // Auditing
@@ -25,6 +28,9 @@ EnrolmentSchema.index({ student: 1, courseOffering: 1 }, { unique: true });
     const auditPlugin = require('../utils/auditPlugin')
     EnrolmentSchema.plugin(auditPlugin)
   } catch (e) {}
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 
 module.exports = mongoose.model('Enrolment', EnrolmentSchema);

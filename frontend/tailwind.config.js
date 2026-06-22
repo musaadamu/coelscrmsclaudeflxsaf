@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -70,6 +71,21 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+=======
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#1e40af",
+        secondary: "#7c3aed",
+        success: "#059669",
+        warning: "#d97706",
+        danger: "#dc2626",
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
       },
     },
   },

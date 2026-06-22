@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -28,7 +32,13 @@ ReportSnapshotSchema.index({ reportType: 1, session: 1 });
 ReportSnapshotSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('ReportSnapshot', ReportSnapshotSchema);
+=======
+ReportSnapshotSchema.plugin(auditPlugin);
+module.exports = mongoose.model('ReportSnapshot', ReportSnapshotSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 ReportSnapshotSchema.plugin(auditPlugin);
 module.exports = mongoose.model('ReportSnapshot', ReportSnapshotSchema);

@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -38,7 +42,13 @@ SemesterSchema.pre('save', async function(next) {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('Semester', SemesterSchema);
+=======
+SemesterSchema.plugin(auditPlugin);
+module.exports = mongoose.model('Semester', SemesterSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 SemesterSchema.plugin(auditPlugin);
 module.exports = mongoose.model('Semester', SemesterSchema);

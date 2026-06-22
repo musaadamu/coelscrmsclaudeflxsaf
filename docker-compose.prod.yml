@@ -2,7 +2,10 @@ version: '3.9'
 
 services:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
   mongodb:
     image: mongo:7
     container_name: coels_mongodb_prod
@@ -26,6 +29,9 @@ services:
     networks:
       - crms_net
 
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
   backend:
     build:
@@ -41,7 +47,10 @@ services:
     environment:
       - NODE_ENV=production
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
       - MONGODB_URI=mongodb://${MONGO_ROOT_USERNAME:-admin}:${MONGO_ROOT_PASSWORD}@mongodb:27017
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -49,6 +58,9 @@ services:
     depends_on:
       - mongodb
       - redis
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
     networks:
       - crms_net
@@ -66,7 +78,10 @@ services:
     environment:
       - NODE_ENV=production
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
       - MONGODB_URI=mongodb://${MONGO_ROOT_USERNAME:-admin}:${MONGO_ROOT_PASSWORD}@mongodb:27017
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -74,6 +89,9 @@ services:
     depends_on:
       - mongodb
       - redis
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
     networks:
       - crms_net
@@ -97,8 +115,13 @@ services:
       - '443:443'
     volumes:
 <<<<<<< HEAD
+<<<<<<< HEAD
       - ./nginx/prod.conf:/etc/nginx/conf.d/default.conf:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
+=======
+      - ./nginx/prod.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/nginx/ssl:ro
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
       - ./nginx/prod.conf:/etc/nginx/nginx.conf:ro
       - /etc/letsencrypt:/etc/nginx/ssl:ro
@@ -110,11 +133,17 @@ services:
       - crms_net
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 volumes:
   mongo_data:
   redis_data:
 
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 networks:
   crms_net:

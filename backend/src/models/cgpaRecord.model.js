@@ -19,11 +19,17 @@ CgpaRecordSchema.index({ student: 1, semester: 1 }, { unique: true });
 
 module.exports = mongoose.model('CgpaRecord', CgpaRecordSchema);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 
 // Auditing
 try {
   const auditPlugin = require('../utils/auditPlugin')
   CgpaRecordSchema.plugin(auditPlugin)
 } catch (e) {}
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f

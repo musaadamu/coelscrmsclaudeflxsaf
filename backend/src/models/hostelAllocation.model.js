@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -26,7 +30,13 @@ const HostelAllocationSchema = new Schema({
 HostelAllocationSchema.index({ student: 1, session: 1 }, { unique: true });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('HostelAllocation', HostelAllocationSchema);
+=======
+HostelAllocationSchema.plugin(auditPlugin);
+module.exports = mongoose.model('HostelAllocation', HostelAllocationSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 HostelAllocationSchema.plugin(auditPlugin);
 module.exports = mongoose.model('HostelAllocation', HostelAllocationSchema);

@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -31,7 +35,13 @@ const NotificationLogSchema = new Schema({
 NotificationLogSchema.index({ createdAt: 1 }, { expireAfterSeconds: 7776000 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('NotificationLog', NotificationLogSchema);
+=======
+NotificationLogSchema.plugin(auditPlugin);
+module.exports = mongoose.model('NotificationLog', NotificationLogSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 NotificationLogSchema.plugin(auditPlugin);
 module.exports = mongoose.model('NotificationLog', NotificationLogSchema);

@@ -146,7 +146,10 @@ export const PaginationSchema = z.object({
 
 export type PaginationQuery = z.infer<typeof PaginationSchema>;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 
 // ─────────────────────────────────────────────────────────────
 // ADMISSION SCHEMAS
@@ -268,4 +271,7 @@ export const CreateAlumniSchema = z.object({
   sessionId: z.string().length(24),
 });
 
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f

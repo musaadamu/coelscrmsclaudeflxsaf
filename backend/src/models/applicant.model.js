@@ -30,13 +30,19 @@ const ApplicantSchema = new Schema({
 
 // Indexing
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 
 // Auditing
 try {
   const auditPlugin = require('../utils/auditPlugin')
   ApplicantSchema.plugin(auditPlugin)
 } catch (e) {}
+<<<<<<< HEAD
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
+=======
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 ApplicantSchema.index({ cycle: 1, status: 1 });
 ApplicantSchema.index({ email: 1, cycle: 1 }, { unique: true });

@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+const auditPlugin = require('../utils/auditPlugin');
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 const auditPlugin = require('../utils/auditPlugin');
 >>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
@@ -26,7 +30,13 @@ const LearningResourceSchema = new Schema({
 LearningResourceSchema.index({ module: 1, orderIndex: 1 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = mongoose.model('LearningResource', LearningResourceSchema);
+=======
+LearningResourceSchema.plugin(auditPlugin);
+module.exports = mongoose.model('LearningResource', LearningResourceSchema);
+
+>>>>>>> 8e59fd705bf9514513ad1c34b00061d692a81a7f
 =======
 LearningResourceSchema.plugin(auditPlugin);
 module.exports = mongoose.model('LearningResource', LearningResourceSchema);
