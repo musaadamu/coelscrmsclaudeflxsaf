@@ -1,0 +1,104 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: coels_mongodb_prod
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: coels_crms
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - crms_net
+
+  redis:
+    image: redis:7-alpine
+    container_name: coels_redis_prod
+    restart: always
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    networks:
+      - crms_net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: production
+    container_name: coels_backend_prod
+    restart: always
+    ports:
+      - '4000:4000'
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://${MONGO_ROOT_USERNAME:-admin}:${MONGO_ROOT_PASSWORD}@mongodb:27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - crms_net
+
+  bullmq-worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: production
+    container_name: coels_worker_prod
+    restart: always
+    command: node dist/workers/index.js
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://${MONGO_ROOT_USERNAME:-admin}:${MONGO_ROOT_PASSWORD}@mongodb:27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - crms_net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: production
+    container_name: coels_frontend_prod
+    restart: always
+    networks:
+      - crms_net
+
+  nginx:
+    image: nginx:alpine
+    container_name: coels_nginx_prod
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./nginx/prod.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/nginx/ssl:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - crms_net
+
+volumes:
+  mongo_data:
+  redis_data:
+
+networks:
+  crms_net:
+    driver: bridge

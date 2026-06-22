@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .header {
+            background-color: #d97706;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .meeting-details {
+            background-color: #fef3c7;
+            padding: 15px;
+            border-left: 4px solid #d97706;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .footer {
+            background-color: #f3f4f6;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-radius: 0 0 8px 8px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #d97706;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Senate Meeting Reminder</h1>
+        </div>
+        
+        <div style="padding: 20px;">
+            <p>Dear {{memberName}},</p>
+            
+            <p>This is a reminder of an upcoming Senate meeting:</p>
+            
+            <div class="meeting-details">
+                <p><strong>Meeting Title:</strong> {{meetingTitle}}</p>
+                <p><strong>Scheduled Date & Time:</strong> {{scheduledAt}}</p>
+                <p><strong>Venue:</strong> {{venue}}</p>
+                <p><strong>Prayer Submission Deadline:</strong> {{prayerDeadline}}</p>
+            </div>
+            
+            <p>Please ensure your attendance and submit any opening or closing prayers to the Senate Secretariat by the deadline.</p>
+            
+            <a href="{{portalUrl}}" class="button">Access Portal</a>
+            
+            <p>If you have any questions, please contact the Senate Secretariat.</p>
+            
+            <p>Best regards,<br>
+            COELS Senate Office</p>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 COELS. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
