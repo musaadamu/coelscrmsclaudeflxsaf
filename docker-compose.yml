@@ -1,0 +1,113 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: coels_mongodb
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: coels_crms
+    networks:
+      - crms_net
+
+  redis:
+    image: redis:7-alpine
+    container_name: coels_redis
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    networks:
+      - crms_net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: coels_backend
+    restart: unless-stopped
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./backend/src:/app/src
+      - ./shared:/shared
+      - ./templates:/templates
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - crms_net
+
+  bullmq-worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: coels_worker
+    restart: unless-stopped
+    command: npx ts-node src/workers/index.ts
+    volumes:
+      - ./backend/src:/app/src
+      - ./shared:/shared
+      - ./templates:/templates
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - crms_net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: coels_frontend
+    restart: unless-stopped
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./frontend/src:/app/src
+      - ./shared:/shared
+    env_file:
+      - ./frontend/.env
+    networks:
+      - crms_net
+
+  nginx:
+    image: nginx:alpine
+    container_name: coels_nginx
+    restart: always
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/dev.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - crms_net
+
+volumes:
+  mongo_data:
+  redis_data:
+
+networks:
+  crms_net:
+    driver: bridge
